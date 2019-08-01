@@ -49,9 +49,11 @@ func TestCmdEnvWithoutOverride(t *testing.T) {
 	envVars := []string{"FOO=BAR", "JOE=123"}
 	cmd := setupCmdEnv("env", envVars, false)
 	testEnv := append(envVars, os.Environ()...)
+
 	if len(cmd.Env) != len(testEnv) {
 		t.Errorf("Expected len of %d, got %d", len(testEnv), len(cmd.Env))
 	}
+
 	for i, ev := range cmd.Env {
 		if ev != testEnv[i] {
 			t.Errorf("Expected: %s, got %s", testEnv[i], ev)
@@ -63,9 +65,11 @@ func TestCmdEnvWithOverride(t *testing.T) {
 	envVars := []string{"FOO=BAR", "JOE=123"}
 	cmd := setupCmdEnv("env", envVars, true)
 	testEnv := envVars
+
 	if len(cmd.Env) != len(testEnv) {
 		t.Errorf("Expected len of %d, got %d", len(testEnv), len(cmd.Env))
 	}
+
 	for i, ev := range cmd.Env {
 		if ev != testEnv[i] {
 			t.Errorf("Expected: %s, got %s", testEnv[i], ev)
