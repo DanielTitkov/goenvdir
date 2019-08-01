@@ -45,7 +45,6 @@ func main() {
 
 	if flag.NArg() < 2 {
 		log.Fatal("Provide envdir and program to execute")
-		os.Exit(1)
 	}
 	envPath, program := flag.Args()[0], flag.Args()[1]
 
