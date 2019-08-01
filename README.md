@@ -16,14 +16,17 @@ Use `i` flag to run program with env variables ONLY from directory.
 
 With env override
 
-`[titkovd@localhost]$ goenvdir -i ./example env
+```shell
+[titkovd@localhost]$ goenvdir -i ./example env
 BAR=cowsaregreat
 FOO=123
-MOO=FOOD`
+MOO=FOOD
+```
 
 Without env override
 
-`[titkovd@localhost]$ goenvdir ./example env
+```shell
+[titkovd@localhost]$ goenvdir ./example env
 BAR=cowsaregreat
 FOO=123
 MOO=FOOD
@@ -32,4 +35,5 @@ TERM_PROGRAM=vscode
 <...>
 DISPLAY=:0
 COLORTERM=truecolor
-_=/usr/local/go/bin/go`
+_=/usr/local/go/bin/go
+```
