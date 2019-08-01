@@ -9,7 +9,10 @@ import (
 
 func TestEnvVarsCollection(t *testing.T) {
 	testDir := "./test_dir"
-	os.Mkdir(testDir, os.ModePerm)
+	err := os.Mkdir(testDir, os.ModePerm)
+	if err != nil {
+		t.Error(err)
+	}
 	defer os.RemoveAll(testDir)
 
 	type envFile struct {
