@@ -7,7 +7,7 @@ import (
 	"log"
 	"os"
 	"os/exec"
-	"path"
+	"path/filepath"
 )
 
 func collectEnvVars(envPath string) ([]string, error) {
@@ -19,7 +19,7 @@ func collectEnvVars(envPath string) ([]string, error) {
 
 	for _, file := range files {
 		name := file.Name()
-		path := path.Join(envPath, name)
+		path := filepath.Join(envPath, name)
 		data, err := ioutil.ReadFile(path)
 		if err != nil {
 			return envVars, err
@@ -59,5 +59,6 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
+
 	fmt.Println(string(out))
 }
